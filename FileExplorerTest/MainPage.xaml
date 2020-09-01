@@ -252,6 +252,8 @@
 					<Grid.RowDefinitions>
 						<RowDefinition Height="auto"/>
 						<RowDefinition Height="8"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="8"/>
 						<RowDefinition Height="0"/>
 						<RowDefinition/>
 					</Grid.RowDefinitions>
@@ -266,7 +268,7 @@
 					<!--Column 0 Width Synchroniser-->
 					<!--NOTE: Ensure this is on a 0 height row in column 0, containing the longest displayed value in the column-->
 					<TextBlock
-						Grid.Row="2" Grid.Column="0"
+						Grid.Row="4" Grid.Column="0"
 						Style="{StaticResource TextBlock.Label}"
 						Text="Date Modified:"
 					/>
@@ -283,6 +285,20 @@
 						Text="{x:Bind ViewModel.SelectedItem.Size, Converter={StaticResource NumericToFriendlyBytesConverter}, Mode=OneWay}"
 						Visibility="{x:Bind ViewModel.SelectedItem.IsPropertiesPopulated, Mode=OneWay}"
 					/>
+
+					<!--Default App-->
+					<TextBlock
+						Grid.Row="2" Grid.Column="0"
+						Style="{StaticResource TextBlock.Label}"
+						Text="Default App:"
+						Visibility="{x:Bind ViewModel.SelectedItem.IsPropertiesPopulated, Mode=OneWay}"
+					/>
+					<TextBlock
+						Grid.Row="2" Grid.Column="2"
+						Text="{x:Bind ViewModel.SelectedItem.DefaultAppName, Converter={StaticResource NumericToFriendlyBytesConverter}, Mode=OneWay}"
+						Visibility="{x:Bind ViewModel.SelectedItem.IsPropertiesPopulated, Mode=OneWay}"
+					/>
+					
 				</Grid>
 			</StackPanel>
 		</Grid>

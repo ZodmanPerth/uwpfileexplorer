@@ -15,6 +15,8 @@ namespace FileExplorerTest
 		public MonitoredFolderItemType Type { get; set; }
 		public string Name { get; set; }
 		public DateTimeOffset DateCreated { get; set; }
+		public string DefaultAppName { get; set; }
+
 
 		DateTimeOffset _dateModified;
 		public DateTimeOffset DateModified
@@ -58,6 +60,9 @@ namespace FileExplorerTest
 			Type = item is StorageFolder ? MonitoredFolderItemType.Folder : MonitoredFolderItemType.File;
 			Name = item.Name;
 			DateCreated = item.DateCreated;
+
+			if (item is StorageFile file)
+				DefaultAppName = file.DisplayType;
 		}
 
 		// NOTE: This constructor was commented out when the PInvoke method was abandoned
