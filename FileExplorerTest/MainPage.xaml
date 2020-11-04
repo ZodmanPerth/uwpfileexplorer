@@ -70,7 +70,7 @@
 
 			<Viewbox
 				Grid.Column="2"
-				VerticalAlignment="Center" HorizontalAlignment="Left"
+				HorizontalAlignment="Left" VerticalAlignment="Center"
 				StretchDirection="DownOnly"
 			>
 				<TextBlock Text="{x:Bind ViewModel.RootFolder.Path, Mode=OneWay}" />
@@ -114,7 +114,7 @@
 
 			<Viewbox
 				Grid.Row="0" Grid.Column="4"
-				VerticalAlignment="Center" HorizontalAlignment="Left"
+				HorizontalAlignment="Left" VerticalAlignment="Center"
 				StretchDirection="DownOnly"
 			>
 				<TextBlock Text="{x:Bind ViewModel.CurrentFolder.Path, Mode=OneWay}" />
