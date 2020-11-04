@@ -1,6 +1,6 @@
-﻿$root = "C:\dev\-- Data\10000 folders"
+﻿$root = "C:\dev\-- Data\1000 folders"
 
-$numberOfFolders = 10000;
+$numberOfFolders = 1000;
 
 for($i = 0; $i -lt $numberOfFolders; $i++)
 {

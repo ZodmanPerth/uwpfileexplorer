@@ -167,6 +167,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Scripts\CreateTestFiles.ps1" />
     <None Include="Assets\Scripts\CreateTestFolders.ps1" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
