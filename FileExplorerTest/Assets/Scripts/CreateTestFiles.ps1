@@ -7,6 +7,6 @@ $numberOfFiles = 1000;
 
 for($i = 0; $i -lt $numberOfFiles; $i++)
 {
-    $name = "File #$i"
+    $name = "File #$i.png"
     New-Item -Path $root -Name $name -ItemType File
 }
