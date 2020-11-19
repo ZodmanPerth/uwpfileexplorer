@@ -370,7 +370,7 @@ namespace FileExplorerTest
 
 
 
-		bool IsDisposed { get; set; }
+		bool _isDisposed;
 
 		public void Dispose()
 		{
@@ -385,7 +385,7 @@ namespace FileExplorerTest
 		/// </param>
 		void Dispose(bool disposing)
 		{
-			if (!IsDisposed)
+			if (disposing && !_isDisposed)
 			{
 				_cancellationTokenSource?.Cancel();
 
@@ -396,7 +396,7 @@ namespace FileExplorerTest
 				// Disconnect consumer's event handler
 				this.Changed -= _changedEventHandler;
 
-				IsDisposed = true;
+				_isDisposed = true;
 
 				ReportLine($"\nNo longer monitoring folder '{_monitoredFolder.Name}'");
 			}
