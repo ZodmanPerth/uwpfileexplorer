@@ -153,7 +153,10 @@ namespace FileExplorerTest
 			if (this.Type != o.Type)
 				return this.Type.CompareTo(o.Type);
 
-			return StrCmpLogicalW(this.Name, o.Name);
+			if (ServiceLocator.NaturalLanguageComparer == null)
+				return StrCmpLogicalW(this.Name, o.Name);
+
+			return ServiceLocator.NaturalLanguageComparer.Compare(this.Name, o.Name);
 		}
 
 

@@ -1,5 +1,4 @@
-﻿using Drawboard;
-using NeoSmart.AsyncLock;
+﻿using NeoSmart.AsyncLock;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -15,6 +14,7 @@ namespace FileExplorerTest
 	{
 		/// <summary>Raised when there are changes in the folder</summary>
 		public event EventHandler<MonitoredFolderChangedArgs> Changed;
+		public event EventHandler<string> ScanComplete;
 
 		/// <summary>The folder being monitored</summary>
 		readonly StorageFolder _monitoredFolder;
@@ -160,6 +160,9 @@ namespace FileExplorerTest
 					ReportLine($"Finished initial scan.  Processed {chunkIndex} items in {stopwatch.ElapsedMilliseconds} ms.");
 
 					ReportLine("Releasing Lock");
+
+					// Raise event
+					ScanComplete?.Invoke(this, stopwatch.ElapsedMilliseconds.ToString());
 				}
 			}
 			catch (Exception ex)
@@ -301,6 +304,9 @@ namespace FileExplorerTest
 					ReportLine(scanId, $"Finished.  Processed {chunkIndex} items in {stopwatch.ElapsedMilliseconds} ms.");
 
 					ReportLine("Releasing Lock");
+
+					// Raise event
+					ScanComplete?.Invoke(this, stopwatch.ElapsedMilliseconds.ToString());
 				}
 			}
 			catch (Exception ex)

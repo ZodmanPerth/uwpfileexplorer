@@ -53,6 +53,13 @@ namespace FileExplorerTest
 		public bool IsFileSelected => _selectedItem?.Type == MonitoredFolderItemType.File;
 		public bool IsFolderSelected => _selectedItem?.Type == MonitoredFolderItemType.Folder;
 
+		string _debugText;
+		public string DebugText
+		{
+			get => _debugText;
+			set => SetValue(ref _debugText, value);
+		}
+
 		public RelayCommand CommandNavigateUpOneFolder { get; }
 
 
@@ -126,6 +133,7 @@ namespace FileExplorerTest
 
 			if (_monitoredFolder != null)
 			{
+				_monitoredFolder.ScanComplete -= DoScanCompleted;
 				_monitoredFolder.Dispose();
 				_monitoredFolder = null;
 			}
@@ -136,7 +144,17 @@ namespace FileExplorerTest
 			Items.Clear();
 
 			_monitoredFolder = new MonitoredFolder(_currentFolder, OnMonitoredFolderChanged);
+			_monitoredFolder.ScanComplete += DoScanCompleted;
+
+			return;
+
+
+			/// Local Functions
+
+
+			void DoScanCompleted(object sender, string s) => UIThread.InvokeAsync(() => DebugText = $"Folder scan took {s}ms");
 		}
+
 
 		async void DoNavigateUpOneFolder()
 		{

@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Drawboard
+namespace FileExplorerTest
 {
 	/// <summary>A utility class used for synchronizing the UI thread</summary>
 	public static class UIThread

@@ -128,6 +128,8 @@
 				<TextBlock Text="{x:Bind ViewModel.Items.Count, Mode=OneWay}" Margin="4,0,0,0" />
 				<TextBlock Text="Selected Index:" Margin="46,0,0,0" Style="{StaticResource TextBlock.Label}"/>
 				<TextBlock Text="{Binding SelectedIndex, ElementName=lv, Mode=OneWay}" Margin="4,0,0,0" />
+				<TextBlock Text="Info:" Margin="46,0,0,0" Style="{StaticResource TextBlock.Label}"/>
+				<TextBlock Text="{x:Bind ViewModel.DebugText, Mode=OneWay}" Margin="4,0,0,0" />
 			</StackPanel>
 
 		</Grid>

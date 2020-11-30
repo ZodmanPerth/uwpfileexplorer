@@ -1,5 +1,4 @@
-﻿using Drawboard;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -91,6 +90,11 @@ namespace FileExplorerTest
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
+
+                    // Prime service Locator
+                    // NOTE: Remove this initialisation to use the Windows comparer
+                    ServiceLocator.Initialise();
+
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
